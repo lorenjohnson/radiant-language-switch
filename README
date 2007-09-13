@@ -1,0 +1,48 @@
+= Language Switch
+
+This extension creates a set of tags and page routing which responds to a cookie stored language variable that is 
+settable and resettable through the "language" query parameters (e.g. http://yoursite.com/your_page?language=en). 
+
+When this parameter isn't present the language selected will be based upon the current cookie value for language, 
+or if this value is also blank then the default acceptable languages in the client's browser will be responded to.
+
+
+= Full text sample/text code (no, there is no Bulgarian sample content... that's to show that the default work :) 
+
+
+<h2>Language Switcher</h2>
+<r:language_switch language="en">English</r:language_switch>
+| 
+<r:language_switch language="es">Spanish</r:language_switch>
+|
+<r:language_switch language="fr">French</r:language_switch>
+|
+<r:language_switch language="de">German</r:language_switch>
+|
+<r:language_switch language="bg">Bulgarian</r:language_switch>
+|
+<r:language_reset>Reset</r:language_reset>
+
+
+<h2>Content</h2>
+<r:language>
+   <r:matches value="es">
+     <h4>Español</h4>
+     <p>Diez soldados estadounidenses murieron a causa de bombas en carreteras y al estrellarse un helicóptero en Irak, mientras cinco británicos fueron secuestrados en el Ministerio de Hacienda iraquí, dijeron el martes las autoridades.</p>
+   </r:matches>
+   <r:matches value="fr">
+     <h4>Français</h4>
+     <p>Ces dernières semaines, le Brésil s’est d’ailleurs souvenu de la répression qui avait enrayé une vague de violence, il y a un an à Sao Paulo, avec un très lourd bilan : 493 morts en à peine six jours. Entre les 12 et 19 mai 2006, le Premier commando de la capitale (PCC), l’un des gangs mafieux les plus puissants d’Amérique latine, avait orchestré une série d’attaques contre les forces de l’ordre, semant la terreur parmi les 11 millions d’habitants de la ville.</p>
+   </r:matches>
+   <r:matches value="de">
+     <h4>Deutsche</h4>
+     <p>Die Innenminister von Bund und Laendern beraten heute und morgen ueber den Poli zeieinsatz waehrend des G8-Gipfels in der kommenden Woche in Heiligendamm. Bis zu 16.400 Polizisten sollen waehrend des Treffens der Staats- und Regie rungschefs der fuehrenden Industriena tionen zum Einsatz kommen. Wie nah Glo balisierungsgegner dem Tagungsort kom men duerfen, ist noch unklar. Gestern wurde der zwoelf Kilometer lange Zaun um das Gelaende geschlossen. Fuer eine Woche duerfen nur die Bewohner und besonders Berechtigte in das Gebiet.</p>
+   </r:matches>
+   <r:matches value="en" default="true">
+     <h4>English (default)</h4>
+     <p>Is new software a key component to growth or essential to your new business idea? Rapid prototyping and constant evaluation can insure you only build exactly what need; nothing more, nothing less.</p>
+   </r:matches>
+</r:language>
+
+<h3>Browser Languages</h3>
+<p><r:languages /></p>
