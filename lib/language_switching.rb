@@ -7,12 +7,12 @@ module LanguageSwitching
     @language = request.cookies["language"].value.to_s unless request.cookies["language"].blank?
     unless request.parameters["language"].blank?
       if request.parameters["language"] == "browser"
-        cookie = CGI::Cookie.new("name" => "language", "value" => "", "expires" => Time.at(0))
+        cookie = CGI::Cookie.new("name" => "language", "value" => "", "expires" => Time.at(0), "domain" => "parenthelp123.org")
         response.headers["cookie"] << cookie
         @language = nil
       else
         # options = { :name => "language", :value => request.parameters["language"], "path" => "/" }
-        cookie = CGI::Cookie.new("name" => "language", "value" => request.parameters["language"], "path" => "/")
+        cookie = CGI::Cookie.new("name" => "language", "value" => request.parameters["language"], "path" => "/", "domain" => "parenthelp123.org")
         response.headers["cookie"] << cookie
         @language = request.parameters["language"]
       end
